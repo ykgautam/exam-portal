@@ -13,33 +13,35 @@ import com.exam.service.QuizService;
 @Service
 public class QuizServiceImpl implements QuizService {
 
-	@Autowired
-	QuizRepository quizRepository;
+    @Autowired
+    QuizRepository quizRepository;
 
-	@Override
-	public Quiz addQuiz(Quiz quiz) {
+    @Override
+    public Quiz addQuiz(Quiz quiz) {
 
-		return this.quizRepository.save(quiz);
-	}
+        return this.quizRepository.save(quiz);
+    }
 
-	@Override
-	public Quiz updateQuiz(Quiz quiz) {
-		return this.quizRepository.save(quiz);
-	}
+    @Override
+    public Quiz updateQuiz(Quiz quiz) {
+        return this.quizRepository.save(quiz);
+    }
 
-	@Override
-	public Set<Quiz> getQuizzez() {
-		return new LinkedHashSet<>(this.quizRepository.findAll());
-	}
+    @Override
+    public Set<Quiz> getQuizzez() {
+        return new LinkedHashSet<>(this.quizRepository.findAll());
+    }
 
-	@Override
-	public Quiz getQuiz(Long quizId) {
-		return this.quizRepository.getById(quizId);
-	}
+    @Override
+    public Quiz getQuiz(Long quizId) {
+        return this.quizRepository.findById(quizId).get();
+    }
 
-	@Override
-	public void deleteQuiz(Long quizId) {
-		this.quizRepository.deleteById(quizId);
-	}
+    @Override
+    public void deleteQuiz(Long quizId) {
+        Quiz quiz = new Quiz();
+        quiz.setQid(quizId);
+        this.quizRepository.delete(quiz);
+    }
 
 }

@@ -16,81 +16,89 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Quiz {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long qid;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long qid;
 
-	private String title;
+    private String title;
 
-	private String description;
+    private String description;
 
-	private String maxMarks;
+    private String maxMarks;
 
-	private String numberOfQuestion;
+    private String numberOfQuestion;
 
-	private boolean isActive = false;
+    private boolean isActive = false;
 
-	@ManyToOne
-	private Category category;
+    @ManyToOne
+    private Category category;
 
-	@OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
-	private Set<Question> question = new HashSet<>();
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Question> question = new HashSet<>();
 
-	public Long getQid() {
-		return qid;
-	}
+    public Long getQid() {
+        return qid;
+    }
 
-	public void setQid(Long qid) {
-		this.qid = qid;
-	}
+    public void setQid(Long qid) {
+        this.qid = qid;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public String getMaxMarks() {
-		return maxMarks;
-	}
+    public String getMaxMarks() {
+        return maxMarks;
+    }
 
-	public void setMaxMarks(String maxMarks) {
-		this.maxMarks = maxMarks;
-	}
+    public void setMaxMarks(String maxMarks) {
+        this.maxMarks = maxMarks;
+    }
 
-	public String getNumberOfQuestion() {
-		return numberOfQuestion;
-	}
+    public String getNumberOfQuestion() {
+        return numberOfQuestion;
+    }
 
-	public void setNumberOfQuestion(String numberOfQuestion) {
-		this.numberOfQuestion = numberOfQuestion;
-	}
+    public void setNumberOfQuestion(String numberOfQuestion) {
+        this.numberOfQuestion = numberOfQuestion;
+    }
 
-	public boolean isActive() {
-		return isActive;
-	}
+    public boolean isActive() {
+        return isActive;
+    }
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
-	public Category getCategory() {
-		return category;
-	}
+    public Category getCategory() {
+        return category;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Set<Question> getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Set<Question> question) {
+        this.question = question;
+    }
 
 }
