@@ -31,20 +31,20 @@ public class ExamportalApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		 System.out.println("code started"); User user = new User();
-		 user.setFirstName("yash"); user.setLastName("Gautam");
-		  user.setUsername("ykg"); user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
-		  user.setEmail("yash@gmail.com"); user.setPhone("9876354212");
-		  user.setProfile("default.png");
-		  
-		  Role role1 = new Role(); role1.setRoleId(44L); role1.setRoleName("ADMIN");
-		  
-		  UserRole userRole = new UserRole(); userRole.setRole(role1);
-		  userRole.setUser(user);
-		  
-		  Set<UserRole> userRoleSet = new HashSet<>(); userRoleSet.add(userRole);
-		  
-		  User user1 = this.userService.createUser(user, userRoleSet);
-		 System.out.println(user1.getUsername());
+//		 user.setFirstName("yash"); user.setLastName("Gautam");
+//		  user.setUsername("ykg"); user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
+//		  user.setEmail("yash@gmail.com"); user.setPhone("9876354212");
+//		  user.setProfile("default.png");
+//		  
+//		  Role role1 = new Role(); role1.setRoleId(44L); role1.setRoleName("ADMIN");
+//		  
+//		  UserRole userRole = new UserRole(); userRole.setRole(role1);
+//		  userRole.setUser(user);
+//		  
+//		  Set<UserRole> userRoleSet = new HashSet<>(); userRoleSet.add(userRole);
+//		  
+//		  User user1 = this.userService.createUser(user, userRoleSet);
+//		 System.out.println(user1.getUsername());
 		 
 	}
 
